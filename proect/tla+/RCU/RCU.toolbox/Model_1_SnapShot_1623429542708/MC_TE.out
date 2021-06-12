@@ -1,0 +1,305 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 25 and seed -5896610960744638383 with 6 workers on 12 cores with 1214MB heap and 2730MB offheap memory [pid: 77270] (Mac OS X 10.16 x86_64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /Users/kanghongbo/Desktop/tla+/RCU/RCU.toolbox/Model_1/MC.tla
+Parsing file /Users/kanghongbo/Desktop/tla+/RCU/RCU.toolbox/Model_1/RCU.tla
+Parsing file /Applications/TLA+ Toolbox.app/Contents/Eclipse/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/TLC.tla
+Parsing file /Applications/TLA+ Toolbox.app/Contents/Eclipse/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Integers.tla
+Parsing file /Applications/TLA+ Toolbox.app/Contents/Eclipse/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Naturals.tla
+Parsing file /Applications/TLA+ Toolbox.app/Contents/Eclipse/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Sequences.tla
+Parsing file /Applications/TLA+ Toolbox.app/Contents/Eclipse/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module RCU
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2021-06-12 00:39:00)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated at 2021-06-12 00:39:01.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2110:1 @!@!@
+Invariant RCUNoBadPointer is violated.
+@!@!@ENDMSG 2110 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ FocusingVersion = (c1 :> "empty" @@ c2 :> "empty" @@ c3 :> "empty")
+/\ UnfinishedVersions = {v1, v2, v3}
+/\ CurrentVersion = v1
+/\ DeletionState = ( v1 :> [state |-> "uninit"] @@
+  v2 :> [state |-> "uninit"] @@
+  v3 :> [state |-> "uninit"] )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <RCUNext line 58, col 28 to line 58, col 69 of module RCU>
+/\ FocusingVersion = (c1 :> "empty" @@ c2 :> "empty" @@ c3 :> "empty")
+/\ UnfinishedVersions = {v2, v3}
+/\ CurrentVersion = v1
+/\ DeletionState = ( v1 :>
+      [ state |-> "init",
+        scheduled |->
+            ( c1 :> "unfinished" @@
+              c2 :> "unfinished" @@
+              c3 :> "unfinished" ) ] @@
+  v2 :> [state |-> "uninit"] @@
+  v3 :> [state |-> "uninit"] )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <ScheduleDelete line 35, col 5 to line 39, col 72 of module RCU>
+/\ FocusingVersion = (c1 :> "empty" @@ c2 :> "empty" @@ c3 :> "empty")
+/\ UnfinishedVersions = {v2, v3}
+/\ CurrentVersion = v1
+/\ DeletionState = ( v1 :>
+      [ state |-> "init",
+        scheduled |->
+            (c1 :> "finished" @@ c2 :> "unfinished" @@ c3 :> "unfinished") ] @@
+  v2 :> [state |-> "uninit"] @@
+  v3 :> [state |-> "uninit"] )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <StartReading line 16, col 5 to line 18, col 70 of module RCU>
+/\ FocusingVersion = (c1 :> v1 @@ c2 :> "empty" @@ c3 :> "empty")
+/\ UnfinishedVersions = {v2, v3}
+/\ CurrentVersion = v1
+/\ DeletionState = ( v1 :>
+      [ state |-> "init",
+        scheduled |->
+            (c1 :> "finished" @@ c2 :> "unfinished" @@ c3 :> "unfinished") ] @@
+  v2 :> [state |-> "uninit"] @@
+  v3 :> [state |-> "uninit"] )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <ScheduleDelete line 35, col 5 to line 39, col 72 of module RCU>
+/\ FocusingVersion = (c1 :> v1 @@ c2 :> "empty" @@ c3 :> "empty")
+/\ UnfinishedVersions = {v2, v3}
+/\ CurrentVersion = v1
+/\ DeletionState = ( v1 :>
+      [ state |-> "init",
+        scheduled |->
+            (c1 :> "finished" @@ c2 :> "finished" @@ c3 :> "unfinished") ] @@
+  v2 :> [state |-> "uninit"] @@
+  v3 :> [state |-> "uninit"] )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+6: <ScheduleDelete line 35, col 5 to line 39, col 72 of module RCU>
+/\ FocusingVersion = (c1 :> v1 @@ c2 :> "empty" @@ c3 :> "empty")
+/\ UnfinishedVersions = {v2, v3}
+/\ CurrentVersion = v1
+/\ DeletionState = ( v1 :>
+      [ state |-> "init",
+        scheduled |->
+            (c1 :> "finished" @@ c2 :> "finished" @@ c3 :> "finished") ] @@
+  v2 :> [state |-> "uninit"] @@
+  v3 :> [state |-> "uninit"] )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+7: <FinishDelete line 42, col 5 to line 46, col 72 of module RCU>
+/\ FocusingVersion = (c1 :> v1 @@ c2 :> "empty" @@ c3 :> "empty")
+/\ UnfinishedVersions = {v2, v3}
+/\ CurrentVersion = v1
+/\ DeletionState = ( v1 :>
+      [ state |-> "deleted",
+        scheduled |->
+            (c1 :> "finished" @@ c2 :> "finished" @@ c3 :> "finished") ] @@
+  v2 :> [state |-> "uninit"] @@
+  v3 :> [state |-> "uninit"] )
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2021-06-12 00:39:01
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<RCUInit line 48, col 1 to line 48, col 7 of module RCU>: 2:2
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 49, col 5 to line 52, col 69 of module RCU: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<StartReading line 15, col 1 to line 15, col 15 of module RCU>: 129:399
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 16, col 8 to line 16, col 35 of module RCU: 1143
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 16, col 8 to line 16, col 25 of module RCU: 744
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 17, col 8 to line 17, col 72 of module RCU: 399
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 18, col 8 to line 18, col 70 of module RCU: 399
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<FinishReading line 21, col 1 to line 21, col 16 of module RCU>: 0:743
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 22, col 8 to line 22, col 65 of module RCU: 743
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 23, col 8 to line 23, col 70 of module RCU: 743
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<ScheduleDelete line 34, col 1 to line 34, col 22 of module RCU>: 280:547
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 35, col 8 to line 35, col 35 of module RCU: 2767
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 35, col 8 to line 35, col 25 of module RCU: 2220
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 36, col 8 to line 36, col 40 of module RCU: 1732
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 36, col 8 to line 36, col 31 of module RCU: 1185
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 37, col 8 to line 37, col 56 of module RCU: 1318
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 37, col 8 to line 37, col 41 of module RCU: 771
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 38, col 8 to line 38, col 82 of module RCU: 547
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 39, col 8 to line 39, col 72 of module RCU: 547
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<FinishDelete line 41, col 1 to line 41, col 20 of module RCU>: 8:22
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 42, col 8 to line 42, col 35 of module RCU: 2234
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 42, col 8 to line 42, col 25 of module RCU: 2213
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 43, col 8 to line 43, col 40 of module RCU: 1199
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 43, col 8 to line 43, col 31 of module RCU: 1178
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 44, col 28 to line 44, col 77 of module RCU: 1063
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 44, col 28 to line 44, col 64 of module RCU: 1000
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 44, col 20 to line 44, col 24 of module RCU: 768
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 45, col 8 to line 45, col 74 of module RCU: 21
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 45, col 25 to line 45, col 74 of module RCU: 22
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 46, col 8 to line 46, col 72 of module RCU: 21
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<RCUNext line 55, col 1 to line 55, col 7 of module RCU (58 28 58 69)>: 40:234
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 27, col 8 to line 27, col 35 of module RCU: 1034
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 27, col 8 to line 27, col 25 of module RCU: 800
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 28, col 8 to line 28, col 55 of module RCU: 234
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 28, col 30 to line 28, col 55 of module RCU: 420
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 29, col 8 to line 29, col 28 of module RCU: 234
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 29, col 26 to line 29, col 28 of module RCU: 420
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 30, col 8 to line 30, col 53 of module RCU: 654
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 30, col 8 to line 30, col 42 of module RCU: 420
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 31, col 8 to line 31, col 134 of module RCU: 234
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 32, col 8 to line 32, col 36 of module RCU: 234
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 58, col 65 to line 58, col 65 of module RCU: 800
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 58, col 68 to line 58, col 68 of module RCU: 420
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 58, col 37 to line 58, col 54 of module RCU: 743
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<RCUNoBadPointer line 62, col 1 to line 62, col 15 of module RCU>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 66, col 5 to line 67, col 79 of module RCU: 458
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 66, col 8 to line 67, col 79 of module RCU: 458
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 66, col 25 to line 67, col 79 of module RCU: 1372
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 66, col 28 to line 66, col 55 of module RCU: 1372
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 67, col 28 to line 67, col 79 of module RCU: 683
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 66, col 17 to line 66, col 21 of module RCU: 458
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(8) at 2021-06-12 00:39:01: 1,923 states generated (127,774 s/min), 458 distinct states found (30,431 ds/min), 212 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+1923 states generated, 458 distinct states found, 212 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 8.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2268:0 @!@!@
+The average outdegree of the complete state graph is 2 (minimum is 0, the maximum 6 and the 95th percentile is 4).
+@!@!@ENDMSG 2268 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 909ms at (2021-06-12 00:39:01)
+@!@!@ENDMSG 2186 @!@!@

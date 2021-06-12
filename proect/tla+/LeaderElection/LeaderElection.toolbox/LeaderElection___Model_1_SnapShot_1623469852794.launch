@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.lamport.tla.toolbox.tool.tlc.modelCheck">
+    <stringAttribute key="configurationName" value="Model_1_SnapShot_1623469852794"/>
+    <intAttribute key="distributedFPSetCount" value="0"/>
+    <stringAttribute key="distributedNetworkInterface" value="183.172.64.114"/>
+    <intAttribute key="distributedNodesCount" value="1"/>
+    <stringAttribute key="distributedTLC" value="off"/>
+    <intAttribute key="fpIndex" value="55"/>
+    <intAttribute key="maxHeapSize" value="25"/>
+    <stringAttribute key="modelBehaviorInit" value="Init"/>
+    <stringAttribute key="modelBehaviorNext" value="Next"/>
+    <stringAttribute key="modelBehaviorSpec" value=""/>
+    <intAttribute key="modelBehaviorSpecType" value="2"/>
+    <stringAttribute key="modelBehaviorVars" value="state, currentTerm, votesGranted, messages, votedFor"/>
+    <stringAttribute key="modelComments" value=""/>
+    <booleanAttribute key="modelCorrectnessCheckDeadlock" value="false"/>
+    <listAttribute key="modelCorrectnessInvariants">
+        <listEntry value="1OnlyOneLeaderEachTerm"/>
+        <listEntry value="0NoLeader"/>
+        <listEntry value="0Test"/>
+        <listEntry value="0NoGrantedMessage"/>
+    </listAttribute>
+    <listAttribute key="modelCorrectnessProperties"/>
+    <intAttribute key="modelEditorOpenTabs" value="8"/>
+    <stringAttribute key="modelExpressionEval" value=""/>
+    <listAttribute key="modelParameterConstants">
+        <listEntry value="Nil;;Nil;1;0"/>
+        <listEntry value="RequestVoteReqType;;RequestVoteReqType;1;0"/>
+        <listEntry value="AppendEntryType;;AppendEntryType;1;0"/>
+        <listEntry value="Follower;;Follower;1;0"/>
+        <listEntry value="Majority;;{{s1, s2}, {s1, s3}, {s2, s3}, {s1, s2, s3}};0;0"/>
+        <listEntry value="TotalTerm;;{1, 2};0;0"/>
+        <listEntry value="Leader;;Leader;1;0"/>
+        <listEntry value="Server;;{s1, s2, s3};1;0"/>
+        <listEntry value="RequestVoteRepType;;RequestVoteRepType;1;0"/>
+        <listEntry value="Candidate;;Candidate;1;0"/>
+    </listAttribute>
+    <intAttribute key="modelVersion" value="20191005"/>
+    <intAttribute key="numberOfWorkers" value="6"/>
+    <stringAttribute key="result.mail.address" value=""/>
+    <stringAttribute key="specName" value="LeaderElection"/>
+    <stringAttribute key="tlcResourcesProfile" value="local custom"/>
+    <listAttribute key="traceExploreExpressions">
+        <listEntry value="1state"/>
+        <listEntry value="1messages"/>
+        <listEntry value="1votedFor"/>
+        <listEntry value="1votesGranted"/>
+    </listAttribute>
+</launchConfiguration>
